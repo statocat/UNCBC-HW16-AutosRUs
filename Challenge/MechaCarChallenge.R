@@ -16,13 +16,6 @@ model <- lm(mpg ~ vehicle_length + vehicle_weight + spoiler_angle + ground_clear
 model
 
 # get model summary: R^2 = 0.7149, p = 5.35E-11
-# interpretation: this model explains roughly 70% of the variation in mpg
-# and p << 0.05 indicates that H0 can be rejected--> the slope is 
-# statistically different from zero.
-#
-# vehicle weight and ground clearance appear to be highly significant,
-# but the intercept is also highly significant indicating there is variation in dependent
-# variable (mpg) that cannot be attributed to the predictors included in the model.
 summary(model)
 
 # create plot of model with regression line. Annotate with R^2 and p-value.
@@ -89,20 +82,3 @@ t.test(tbl$PSI, mu=1500) # p=0.06028 --> Fail to reject H0 (but a bit too close 
 t.test(subset(tbl$PSI, tbl$Manufacturing_Lot == 'Lot1'), mu=1500) # p = 1 --> fail to reject H0
 t.test(subset(tbl$PSI, tbl$Manufacturing_Lot == 'Lot2'), mu=1500)  # p=0.6072 --> fail to reject H0
 t.test(subset(tbl$PSI, tbl$Manufacturing_Lot == 'Lot3'), mu=1500)  # p=0.04168 --> Reject H0, Lot3 mean is statistically different from 1500
-
-#### Deliverable 4: Design a Study Comparing MechaCar to Competitions ###
-
-# Vehicle crash safety is one of the most important factors consumers consider when purchasing a car
-# The NHTSA 5-star safety rating program evaluates how vehicles perform in the following tests:
-# frontal crash test, side barrier crash test, side pole crash test, and rollover resistance.
-# The NHTSA provides data to consumers for cars via an API
-# Another source for safety data is RealSafeCars.com, created by Benjamin Shiller et al.
-# Information about the rating system can be found in this paper: Are Coarse Ratings Fine? Applications to Crashworthiness Ratings.
-# There are many factors that affect vehicle safety rating, e.g. height, weight, and ground clearance (continuous variables)
-# and also presence of key safety features (e.g. blind-spot monitoring and lane-departure alert system).
-# MechaCar could collect relevant data about vehicle design that are comparable to their prototypes and also
-# find their RealSafeCars VLFC and VLIC scores.
-# a linear model could built to predict these two metrics from RealSafeCars.
-# Then, they can use the model to predict VLFC and VLIC.
-# If the score is good, then this can be a good selling point for MechaCars.
-
