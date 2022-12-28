@@ -37,4 +37,9 @@ A t-test of the weight capacities for suspension coils manufactured MechaCar ind
 
 ## Experimental Design: Linear Regression of Vehicle Design to Predict Vehicle Lifetime Fatality Chance and Vehicle Lifetime Injury Chance
 
-Vehicle crash safety is one of the most important considerations consumers make when deciding to purchase a new vehicle. Popular sources of safety information include the <a href="https://www.nhtsa.gov/ratings" target="_blank">NHTSA 5-star safety rating program</a> (which rates safety from 1-5 based on results of frontal collision test, side-barrier crash test, side pole crash test, and rollover resistance) and the <a href="https://www.iihs.org/ratings/top-safety-picks" target="_blank">IIHS Top Safety Picks</a>
+Vehicle crash safety is one of the most important considerations consumers make when deciding to purchase a new vehicle. Popular sources of safety information include the <a href="https://www.nhtsa.gov/ratings" target="_blank">NHTSA 5-star safety rating program</a> (which rates safety from 1-5 based on results of frontal collision test, side-barrier crash test, side pole crash test, and rollover resistance) and the <a href="https://www.iihs.org/ratings/top-safety-picks" target="_blank">IIHS Top Safety Picks</a> (which rates safety according to a vehichle's "crashworthines" and crash avoidance and mitigation features).
+
+Further analyis has been conducted by Brandeis University professor Ben Shiller and machine learning specialist Bhoomija Ranjan using artificial intelligence to give 'more accurate and meaningful car safety ratings.' This research was published (Siqi Liu & Bhoomija Ranjan & Benjamin Reed Shiller, 2020.
+"<B><A HREF="https://ideas.repec.org/p/brd/wpaper/132.html">Are Coarse Ratings Fine? Applications to Crashworthiness Ratings</A></B>,"
+<A HREF="https://ideas.repec.org/s/brd/wpaper.html">Working Papers</A> 
+132, Brandeis University, Department of Economics and International Businesss School.) and made available to the public at <a href="https://realsafecars.com/" target="_blank">RealSafeCars.com</a>.
