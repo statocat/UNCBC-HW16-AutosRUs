@@ -10,7 +10,7 @@ setwd('/Users/catherinesmith/Desktop/unc_bootcamp/module_16/UNCBC-HW16-AutosRUs/
 df <- read.csv('MechaCar_mpg.csv')
 
 # create linear model
-model <- lm(mpg ~ ., df)
+model <- lm(mpg ~ vehicle_length + vehicle_weight + spoiler_angle + ground_clearance + AWD, df)
 
 # get intercept and regression coefficients
 model
@@ -26,24 +26,27 @@ model
 summary(model)
 
 # create plot of model with regression line. Annotate with R^2 and p-value.
-# adapted from code source: https://sejohnston.com/2012/08/09/a-quick-and-easy-function-to-plot-lm-results-in-r/
+# adapted from code sources:
+# https://sejohnston.com/2012/08/09/a-quick-and-easy-function-to-plot-lm-results-in-r/
+# https://stackoverflow.com/questions/5587676/pull-out-p-values-and-r-squared-from-a-linear-regression
 ggplotRegression <- function (fit) {
   
   require(ggplot2)
   
+  f <- summary(fit)$fstatistic
   ggplot(fit$model, aes_string(x = names(fit$model)[2], y = names(fit$model)[1])) + 
     geom_point() +
     stat_smooth(method = "lm", col = "red") +
     labs(title = paste("R^2 = ",signif(summary(fit)$r.squared, 5),
                        "Intercept =",signif(fit$coef[[1]],5 ),
                        " Slope =",signif(fit$coef[[2]], 5),
-                       " P =",signif(summary(fit)$coef[2,4], 5)),
+                       " P =",signif(pf(f[1],f[2],f[3],lower.tail=F), 5)),
          x = paste('Model: ', as.character(summary(fit)$call)[2] )) +
     theme_minimal()
 }
 
 png('ModelPlot.png')
-ggplotRegression(lm(mpg ~ vehicle_length + vehicle_weight + spoiler_angle + ground_clearance + AWD, df))
+ggplotRegression(model)
 dev.off()
 
 # a good way to assess a linear model: diagnostic plots
